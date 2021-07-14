@@ -15,11 +15,8 @@ class OpenMic
 
   def repeated_jokes?
     all_jokes = []
-    @performers.each do |performer|
-      performer.jokes.each do |joke|
-        all_jokes << joke
-      end
-    end
+    @performers.each { |performer| performer.jokes.each { |joke| all_jokes << joke }}
+  
     all_jokes.any? do |joke|
       all_jokes.count(joke) > 1
     end
